@@ -36,7 +36,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance
+        image: star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance
         imagePullPolicy: IfNotPresent
         name: workflow-controller
         resources: {}

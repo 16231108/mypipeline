@@ -23,7 +23,7 @@ spec:
             value: "86400"
           - name: NUM_WORKERS
             value: "2"
-        image: gcr.io/ml-pipeline/persistenceagent:dummy
+        image: star16231108/ml-pipeline-persistenceagent:1.4.1
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-persistenceagent
       serviceAccountName: ml-pipeline-persistenceagent
