@@ -98,32 +98,32 @@ docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA:$MM_VER
 # * .cloudbuild.yaml and .release.cloudbuild.yaml
 # * manifests/kustomize/base/metadata/metadata-grpc-deployment.yaml
 # * test/tag_for_hosted.sh
-docker tag gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/metadataserver:$SEM_VER
-docker tag gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/metadataserver:$MM_VER
+docker tag star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/metadataserver:$SEM_VER
+docker tag star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/metadataserver:$MM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/metadataserver:$SEM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/metadataserver:$MM_VER
 
-docker tag gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/minio:$SEM_VER
-docker tag gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/minio:$MM_VER
+docker tag star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/minio:$SEM_VER
+docker tag star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/minio:$MM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/minio:$SEM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/minio:$MM_VER
 
-docker tag gcr.io/ml-pipeline/mysql:5.6 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/mysql:$SEM_VER
-docker tag gcr.io/ml-pipeline/mysql:5.6 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/mysql:$MM_VER
+docker tag star16231108/ml-pipeline-mysql:5.6 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/mysql:$SEM_VER
+docker tag star16231108/ml-pipeline-mysql:5.6 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/mysql:$MM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/mysql:$SEM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/mysql:$MM_VER
 
-docker tag gcr.io/cloudsql-docker/gce-proxy:1.14 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/cloudsqlproxy:$SEM_VER
-docker tag gcr.io/cloudsql-docker/gce-proxy:1.14 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/cloudsqlproxy:$MM_VER
+docker tag star16231108/cloudsql-docker-gce-proxy:1.14 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/cloudsqlproxy:$SEM_VER
+docker tag star16231108/cloudsql-docker-gce-proxy:1.14 gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/cloudsqlproxy:$MM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/cloudsqlproxy:$SEM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/cloudsqlproxy:$MM_VER
 
-docker tag gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoexecutor:$SEM_VER
-docker tag gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoexecutor:$MM_VER
+docker tag star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoexecutor:$SEM_VER
+docker tag star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoexecutor:$MM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoexecutor:$SEM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoexecutor:$MM_VER
 
-docker tag gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoworkflowcontroller:$SEM_VER
-docker tag gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoworkflowcontroller:$MM_VER
+docker tag star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoworkflowcontroller:$SEM_VER
+docker tag star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoworkflowcontroller:$MM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoworkflowcontroller:$SEM_VER
 docker push gcr.io/$PROJECT_ID/hosted/$COMMIT_SHA/argoworkflowcontroller:$MM_VER

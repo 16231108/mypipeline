@@ -1,5 +1,5 @@
 images:
-  apiserver: gcr.io/ml-pipeline/google/pipelines/apiserver:dummy
+  apiserver: star16231108/ml-pipeline/google/pipelines/apiserver:dummy
   argoexecutor: gcr.io/ml-pipeline/google/pipelines/argoexecutor:dummy
   argoworkflowcontroller: gcr.io/ml-pipeline/google/pipelines/argoworkflowcontroller:dummy
   cloudsqlproxy: gcr.io/ml-pipeline/google/pipelines/cloudsqlproxy:dummy

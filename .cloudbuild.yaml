@@ -180,22 +180,22 @@ steps:
 # * manifests/kustomize/base/metadata/metadata-grpc-deployment.yaml
 # * test/tag_for_hosted.sh
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1']
+  args: ['pull', 'star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1']
   id:   'pullMetadataServer'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance']
+  args: ['pull', 'star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance']
   id:   'pullMinio'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/mysql:5.6']
+  args: ['pull', 'star16231108/ml-pipeline-mysql:5.6']
   id:   'pullMysql'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/cloudsql-docker/gce-proxy:1.14']
+  args: ['pull', 'star16231108/cloudsql-docker-gce-proxy:1.14']
   id:   'pullCloudsqlProxy'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance']
+  args: ['pull', 'star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance']
   id:   'pullArgoExecutor'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance']
+  args: ['pull', 'star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance']
   id:   'pullArgoWorkflowController'
 
 # Tag for Hosted - SemVersion to Major.Minor parsing

@@ -27,7 +27,7 @@ spec:
         - --configmap
         - workflow-controller-configmap
         - --executor-image
-        - gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance
+        - star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance
         command:
         - workflow-controller
         env:

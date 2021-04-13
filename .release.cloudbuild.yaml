@@ -260,14 +260,14 @@ steps:
 # * manifests/kustomize/base/metadata/metadata-grpc-deployment.yaml
 # * test/tag_for_hosted.sh
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1']
+  args: ['pull', 'star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1']
   id:   'pullMetadataServer'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1', 'gcr.io/ml-pipeline/google/pipelines/metadataserver:$TAG_NAME']
+  args: ['tag', 'star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1', 'gcr.io/ml-pipeline/google/pipelines/metadataserver:$TAG_NAME']
   id:   'tagMetadataServerForMarketplace'
   waitFor: ['pullMetadataServer']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1', 'gcr.io/ml-pipeline/google/pipelines-test/metadataserver:$TAG_NAME']
+  args: ['tag', 'star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1', 'gcr.io/ml-pipeline/google/pipelines-test/metadataserver:$TAG_NAME']
   id:   'tagMetadataServerForMarketplaceTest'
   waitFor: ['pullMetadataServer']
 - id:   'tagMetadataServerForMarketplaceMajorMinor'
@@ -277,8 +277,8 @@ steps:
   args:
   - -ceux
   - |
-    docker tag gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1 gcr.io/ml-pipeline/google/pipelines/metadataserver:$(cat /workspace/mm.ver)
-    docker tag gcr.io/tfx-oss-public/ml_metadata_store_server:0.25.1 gcr.io/ml-pipeline/google/pipelines-test/metadataserver:$(cat /workspace/mm.ver)
+    docker tag star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1 gcr.io/ml-pipeline/google/pipelines/metadataserver:$(cat /workspace/mm.ver)
+    docker tag star16231108/tfx-oss-public-ml_metadata_store_server:0.25.1 gcr.io/ml-pipeline/google/pipelines-test/metadataserver:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines/metadataserver:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines-test/metadataserver:$(cat /workspace/mm.ver)
 
@@ -410,14 +410,14 @@ steps:
     docker push gcr.io/ml-pipeline/google/pipelines-test/metadataenvoy:$(cat /workspace/mm.ver)
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance']
+  args: ['pull', 'star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance']
   id:   'pullMinio'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance', 'gcr.io/ml-pipeline/google/pipelines/minio:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance', 'gcr.io/ml-pipeline/google/pipelines/minio:$TAG_NAME']
   id:   'tagMinioForMarketplace'
   waitFor: ['pullMinio']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance', 'gcr.io/ml-pipeline/google/pipelines-test/minio:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance', 'gcr.io/ml-pipeline/google/pipelines-test/minio:$TAG_NAME']
   id:   'tagMinioForMarketplaceTest'
   waitFor: ['pullMinio']
 - id:   'tagMinioForMarketplaceMajorMinor'
@@ -427,20 +427,20 @@ steps:
   args:
   - -ceux
   - |
-    docker tag gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/ml-pipeline/google/pipelines/minio:$(cat /workspace/mm.ver)
-    docker tag gcr.io/ml-pipeline/minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/ml-pipeline/google/pipelines-test/minio:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/ml-pipeline/google/pipelines/minio:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-minio:RELEASE.2019-08-14T20-37-41Z-license-compliance gcr.io/ml-pipeline/google/pipelines-test/minio:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines/minio:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines-test/minio:$(cat /workspace/mm.ver)
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/mysql:5.6']
+  args: ['pull', 'star16231108/ml-pipeline-mysql:5.6']
   id:   'pullMysql'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/mysql:5.6', 'gcr.io/ml-pipeline/google/pipelines/mysql:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-mysql:5.6', 'gcr.io/ml-pipeline/google/pipelines/mysql:$TAG_NAME']
   id:   'tagMySqlForMarketplace'
   waitFor: ['pullMysql']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/mysql:5.6', 'gcr.io/ml-pipeline/google/pipelines-test/mysql:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-mysql:5.6', 'gcr.io/ml-pipeline/google/pipelines-test/mysql:$TAG_NAME']
   id:   'tagMySqlForMarketplaceTest'
   waitFor: ['pullMysql']
 - id:   'tagMySqlForMarketplaceMajorMinor'
@@ -450,20 +450,20 @@ steps:
   args:
   - -ceux
   - |
-    docker tag gcr.io/ml-pipeline/mysql:5.6 gcr.io/ml-pipeline/google/pipelines/mysql:$(cat /workspace/mm.ver)
-    docker tag gcr.io/ml-pipeline/mysql:5.6 gcr.io/ml-pipeline/google/pipelines-test/mysql:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-mysql:5.6 gcr.io/ml-pipeline/google/pipelines/mysql:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-mysql:5.6 gcr.io/ml-pipeline/google/pipelines-test/mysql:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines/mysql:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines-test/mysql:$(cat /workspace/mm.ver)
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/cloudsql-docker/gce-proxy:1.14']
+  args: ['pull', 'star16231108/cloudsql-docker-gce-proxy:1.14']
   id:   'pullCloudsqlProxy'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/cloudsql-docker/gce-proxy:1.14', 'gcr.io/ml-pipeline/google/pipelines/cloudsqlproxy:$TAG_NAME']
+  args: ['tag', 'star16231108/cloudsql-docker-gce-proxy:1.14', 'gcr.io/ml-pipeline/google/pipelines/cloudsqlproxy:$TAG_NAME']
   id:   'tagCloudSqlProxyForMarketplace'
   waitFor: ['pullCloudsqlProxy']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/cloudsql-docker/gce-proxy:1.14', 'gcr.io/ml-pipeline/google/pipelines-test/cloudsqlproxy:$TAG_NAME']
+  args: ['tag', 'star16231108/cloudsql-docker-gce-proxy:1.14', 'gcr.io/ml-pipeline/google/pipelines-test/cloudsqlproxy:$TAG_NAME']
   id:   'tagCloudSqlProxyForMarketplaceTest'
   waitFor: ['pullCloudsqlProxy']
 - id:   'tagCloudSqlProxyForMarketplaceMajorMinor'
@@ -473,20 +473,20 @@ steps:
   args:
   - -ceux
   - |
-    docker tag gcr.io/cloudsql-docker/gce-proxy:1.14 gcr.io/ml-pipeline/google/pipelines/cloudsqlproxy:$(cat /workspace/mm.ver)
-    docker tag gcr.io/cloudsql-docker/gce-proxy:1.14 gcr.io/ml-pipeline/google/pipelines-test/cloudsqlproxy:$(cat /workspace/mm.ver)
+    docker tag star16231108/cloudsql-docker-gce-proxy:1.14 gcr.io/ml-pipeline/google/pipelines/cloudsqlproxy:$(cat /workspace/mm.ver)
+    docker tag star16231108/cloudsql-docker-gce-proxy:1.14 gcr.io/ml-pipeline/google/pipelines-test/cloudsqlproxy:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines/cloudsqlproxy:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines-test/cloudsqlproxy:$(cat /workspace/mm.ver)
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance']
+  args: ['pull', 'star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance']
   id:   'pullArgoExecutor'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines/argoexecutor:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines/argoexecutor:$TAG_NAME']
   id:   'tagArgoExecutorForMarketplace'
   waitFor: ['pullArgoExecutor']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines-test/argoexecutor:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines-test/argoexecutor:$TAG_NAME']
   id:   'tagArgoExecutorForMarketplaceTest'
   waitFor: ['pullArgoExecutor']
 - id:   'tagArgoExecutorForMarketplaceMajorMinor'
@@ -496,20 +496,20 @@ steps:
   args:
   - -ceux
   - |
-    docker tag gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines/argoexecutor:$(cat /workspace/mm.ver)
-    docker tag gcr.io/ml-pipeline/argoexec:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines-test/argoexecutor:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines/argoexecutor:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-argoexec:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines-test/argoexecutor:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines/argoexecutor:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines-test/argoexecutor:$(cat /workspace/mm.ver)
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance']
+  args: ['pull', 'star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance']
   id:   'pullArgoWorkflowController'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines/argoworkflowcontroller:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines/argoworkflowcontroller:$TAG_NAME']
   id:   'tagArgoWorkflowControllerForMarketplace'
   waitFor: ['pullArgoWorkflowController']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines-test/argoworkflowcontroller:$TAG_NAME']
+  args: ['tag', 'star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance', 'gcr.io/ml-pipeline/google/pipelines-test/argoworkflowcontroller:$TAG_NAME']
   id:   'tagArgoWorkflowControllerForMarketplaceTest'
   waitFor: ['pullArgoWorkflowController']
 - id:   'tagArgoWorkflowControllerForMarketplaceMajorMinor'
@@ -519,8 +519,8 @@ steps:
   args:
   - -ceux
   - |
-    docker tag gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines/argoworkflowcontroller:$(cat /workspace/mm.ver)
-    docker tag gcr.io/ml-pipeline/workflow-controller:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines-test/argoworkflowcontroller:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines/argoworkflowcontroller:$(cat /workspace/mm.ver)
+    docker tag star16231108/ml-pipeline-workflow-controller:v2.7.5-license-compliance gcr.io/ml-pipeline/google/pipelines-test/argoworkflowcontroller:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines/argoworkflowcontroller:$(cat /workspace/mm.ver)
     docker push gcr.io/ml-pipeline/google/pipelines-test/argoworkflowcontroller:$(cat /workspace/mm.ver)
 
@@ -596,24 +596,24 @@ steps:
   waitFor: ['copyPythonComponentSDKLocal']
 
 images:
-- 'gcr.io/ml-pipeline/scheduledworkflow:$TAG_NAME'
-- 'gcr.io/ml-pipeline/scheduledworkflow:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/persistenceagent:$TAG_NAME'
-- 'gcr.io/ml-pipeline/persistenceagent:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/viewer-crd-controller:$TAG_NAME'
-- 'gcr.io/ml-pipeline/viewer-crd-controller:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/inverse-proxy-agent:$TAG_NAME'
-- 'gcr.io/ml-pipeline/inverse-proxy-agent:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/visualization-server:$TAG_NAME'
-- 'gcr.io/ml-pipeline/visualization-server:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/metadata-envoy:$TAG_NAME'
-- 'gcr.io/ml-pipeline/metadata-envoy:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/metadata-writer:$TAG_NAME'
-- 'gcr.io/ml-pipeline/metadata-writer:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/cache-server:$TAG_NAME'
-- 'gcr.io/ml-pipeline/cache-server:$COMMIT_SHA'
-- 'gcr.io/ml-pipeline/cache-deployer:$TAG_NAME'
-- 'gcr.io/ml-pipeline/cache-deployer:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-scheduledworkflow:$TAG_NAME'
+- 'star16231108/ml-pipeline-scheduledworkflow:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-persistenceagent:$TAG_NAME'
+- 'star16231108/ml-pipeline-persistenceagent:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-viewer-crd-controller:$TAG_NAME'
+- 'star16231108/ml-pipeline-viewer-crd-controller:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-inverse-proxy-agent:$TAG_NAME'
+- 'star16231108/ml-pipeline-inverse-proxy-agent:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-visualization-server:$TAG_NAME'
+- 'star16231108/ml-pipeline-visualization-server:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-metadata-envoy:$TAG_NAME'
+- 'star16231108/ml-pipeline-metadata-envoy:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-metadata-writer:$TAG_NAME'
+- 'star16231108/ml-pipeline-metadata-writer:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-cache-server:$TAG_NAME'
+- 'star16231108/ml-pipeline-cache-server:$COMMIT_SHA'
+- 'star16231108/ml-pipeline-cache-deployer:$TAG_NAME'
+- 'star16231108/ml-pipeline-cache-deployer:$COMMIT_SHA'
 - 'gcr.io/ml-pipeline/google/pipelines/scheduledworkflow:$TAG_NAME'
 - 'gcr.io/ml-pipeline/google/pipelines/viewercrd:$TAG_NAME'
 - 'gcr.io/ml-pipeline/google/pipelines/persistenceagent:$TAG_NAME'
