@@ -82,7 +82,7 @@ def print_text(text_path: InputPath()): # The "text" input is untyped so that an
             print(line, end = '')
 
 def print_repeating_lines_pipeline():
-    repeat_lines_task = repeat_line(line='Hello', count=5000)
+    repeat_lines_task = repeat_line(line='Hello', count=500000)
     print_text(repeat_lines_task.output) # Don't forget .output !
 
 # Submit the pipeline for execution:

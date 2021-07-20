@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - image: star16231108/ml-pipeline-viewer-crd-controller:1.4.1
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: ml-pipeline-viewer-crd
         env:
         - name: MAX_NUM_VIEWERS

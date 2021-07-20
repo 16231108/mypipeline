@@ -19,7 +19,7 @@ spec:
       containers:
       - name: main
         image: star16231108/ml-pipeline-cache-deployer:1.4.1
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: NAMESPACE_TO_WATCH
           valueFrom:

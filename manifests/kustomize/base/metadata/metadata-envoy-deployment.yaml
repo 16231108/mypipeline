@@ -17,6 +17,7 @@ spec:
       containers:
       - name: container
         image: star16231108/ml-pipeline-metadata-envoy:1.4.1
+        imagePullPolicy: IfNotPresent
         ports:
         - name: md-envoy
           containerPort: 9090
