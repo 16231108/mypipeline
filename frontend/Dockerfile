@@ -13,7 +13,7 @@ COPY . .
 
 WORKDIR ./frontend
 
-RUN npm ci && npm run postinstall
+RUN npm ci && npm run postinstall && npx browserslist@latest --update-db
 RUN npm run build
 
 RUN mkdir -p ./server/dist && \
