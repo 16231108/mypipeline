@@ -14,7 +14,7 @@ COPY . .
 WORKDIR ./frontend
 
 RUN npm ci && npm run postinstall && npm update && npx browserslist@latest --update-db
-RUN npm run build
+RUN npm install && npm run build
 
 RUN mkdir -p ./server/dist && \
     echo ${COMMIT_HASH} > ./server/dist/COMMIT_HASH && \
