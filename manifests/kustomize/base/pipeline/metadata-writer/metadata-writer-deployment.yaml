@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: main
-        image: gcr.io/ml-pipeline/metadata-writer:dummy
+        image: star16231108/ml-pipeline-metadata-writer:1.7.0-rc.4
         env:
         - name: NAMESPACE_TO_WATCH
           valueFrom:
