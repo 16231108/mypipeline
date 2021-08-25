@@ -12,10 +12,12 @@ spec:
     metadata:
       labels:
         app: ml-pipeline-viewer-crd
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
     spec:
       containers:
-      - image: star16231108/ml-pipeline-viewer-crd-controller:1.4.1
-        imagePullPolicy: IfNotPresent
+      - image: gcr.io/ml-pipeline/viewer-crd-controller:dummy
+        imagePullPolicy: Always
         name: ml-pipeline-viewer-crd
         env:
         - name: MAX_NUM_VIEWERS

@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
       - name: main
-        image: star16231108/ml-pipeline-cache-deployer:1.4.1
-        imagePullPolicy: IfNotPresent
+        image: gcr.io/ml-pipeline/cache-deployer:dummy
+        imagePullPolicy: Always
         env:
         - name: NAMESPACE_TO_WATCH
           valueFrom:

@@ -380,6 +380,7 @@ exports[`RunDetails keeps side pane open and on same tab when run status changes
       }
     >
       <pure(CheckCircleIcon)
+        data-testid="node-status-sign"
         style={
           Object {
             "color": "#34a853",
@@ -427,6 +428,7 @@ exports[`RunDetails keeps side pane open and on same tab when run status changes
       }
     >
       <pure(ErrorIcon)
+        data-testid="node-status-sign"
         style={
           Object {
             "color": "#d50000",
@@ -572,17 +574,17 @@ exports[`RunDetails logs tab does not load logs if clicked node status is skippe
             >
               <MD2Tabs
                 onSwitch={[Function]}
-                selectedTab={5}
+                selectedTab={4}
                 tabs={
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -680,17 +682,17 @@ exports[`RunDetails logs tab keeps side pane open and on same tab when logs chan
             >
               <MD2Tabs
                 onSwitch={[Function]}
-                selectedTab={5}
+                selectedTab={4}
                 tabs={
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -804,17 +806,17 @@ exports[`RunDetails logs tab loads and shows logs in side pane 1`] = `
             >
               <MD2Tabs
                 onSwitch={[Function]}
-                selectedTab={5}
+                selectedTab={4}
                 tabs={
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -928,17 +930,17 @@ exports[`RunDetails logs tab switches to logs tab in side pane 1`] = `
             >
               <MD2Tabs
                 onSwitch={[Function]}
-                selectedTab={5}
+                selectedTab={4}
                 tabs={
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -1057,12 +1059,12 @@ exports[`RunDetails opens side panel when graph node is clicked 1`] = `
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -1198,6 +1200,7 @@ exports[`RunDetails shows failure run status in page title 1`] = `
       }
     >
       <pure(ErrorIcon)
+        data-testid="node-status-sign"
         style={
           Object {
             "color": "#d50000",
@@ -1469,6 +1472,7 @@ exports[`RunDetails shows success run status in page title 1`] = `
       }
     >
       <pure(CheckCircleIcon)
+        data-testid="node-status-sign"
         style={
           Object {
             "color": "#34a853",
@@ -1595,12 +1599,12 @@ exports[`RunDetails switches to inputs/outputs tab in side pane 1`] = `
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -1758,12 +1762,12 @@ exports[`RunDetails switches to manifest tab in side pane 1`] = `
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />
@@ -1910,17 +1914,17 @@ exports[`RunDetails switches to volumes tab in side pane 1`] = `
             >
               <MD2Tabs
                 onSwitch={[Function]}
-                selectedTab={4}
+                selectedTab={3}
                 tabs={
                   Array [
                     "Input/Output",
                     "Visualizations",
-                    "ML Metadata",
                     "Details",
                     "Volumes",
                     "Logs",
                     "Pod",
                     "Events",
+                    "ML Metadata",
                   ]
                 }
               />

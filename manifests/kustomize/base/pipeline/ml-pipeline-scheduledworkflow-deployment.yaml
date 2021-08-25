@@ -12,9 +12,11 @@ spec:
     metadata:
       labels:
         app: ml-pipeline-scheduledworkflow
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
     spec:
       containers:
-      - image: star16231108/ml-pipeline-scheduledworkflow:1.4.1
+      - image: gcr.io/ml-pipeline/scheduledworkflow:dummy
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-scheduledworkflow
         env:

@@ -12,13 +12,15 @@ spec:
     metadata:
       labels:
         app: ml-pipeline-ui
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
     spec:
       volumes:
       - name: config-volume
         configMap:
           name: ml-pipeline-ui-configmap
       containers:
-      - image: star16231108/ml-pipeline-frontend:1.4.1
+      - image: star16231108/ml-pipeline-frontend:1.7.0-rc.4
         imagePullPolicy: IfNotPresent
         name: ml-pipeline-ui
         ports:
@@ -70,4 +72,8 @@ spec:
           initialDelaySeconds: 3
           periodSeconds: 5
           timeoutSeconds: 2
+        resources:
+          requests:
+            cpu: 10m
+            memory: 70Mi
       serviceAccountName: ml-pipeline-ui

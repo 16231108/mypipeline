@@ -16,9 +16,18 @@ spec:
     spec:
       containers:
       - name: server
-        image: star16231108/ml-pipeline-cache-server:1.4.1
-        imagePullPolicy: IfNotPresent
+        image: gcr.io/ml-pipeline/cache-server:dummy
         env:
+          - name: CACHE_IMAGE
+            valueFrom:
+              configMapKeyRef:
+                name: pipeline-install-config
+                key: cacheImage
+          - name: CACHE_NODE_RESTRICTIONS
+            valueFrom:
+              configMapKeyRef:
+                name: pipeline-install-config
+                key: cacheNodeRestrictions
           - name: DBCONFIG_DRIVER
             value: mysql
           - name: DBCONFIG_DB_NAME
@@ -58,6 +67,7 @@ spec:
                "--db_password=$(DBCONFIG_PASSWORD)",
                "--namespace_to_watch=$(NAMESPACE_TO_WATCH)",
               ]
+        imagePullPolicy: Always
         ports:
         - containerPort: 8443
           name: webhook-api

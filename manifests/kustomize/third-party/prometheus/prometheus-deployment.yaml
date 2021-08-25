@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: star16231108/prometheus
+        image: prom/prometheus
         volumeMounts:
           - name: config-volume
             mountPath: /etc/prometheus/prometheus.yml

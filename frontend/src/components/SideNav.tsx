@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google LLC
+ * Copyright 2018 The Kubeflow Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,11 @@ import { Deployments, KFP_FLAGS } from '../lib/Flags';
 import { LocalStorage, LocalStorageKey } from '../lib/LocalStorage';
 import { logger } from '../lib/Utils';
 import { GkeMetadataContext, GkeMetadata } from 'src/lib/GkeMetadata';
+import { Alarm } from '@material-ui/icons';
+
+export const tailwindcss = {
+  sideNavItem: 'flex flex-row flex-shrink-0',
+};
 
 export const sideNavColors = {
   bg: '#f8fafb',
@@ -247,7 +252,7 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
     this._isMounted = false;
   }
 
-  public render(): JSX.Element {
+  public render(): JSX.Element | null {
     const page = this.props.page;
     const { collapsed, displayBuildInfo } = this.state;
     const { gkeMetadata } = this.props;
@@ -255,6 +260,10 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
       active: sideNavColors.fgActive,
       inactive: sideNavColors.fgDefault,
     };
+
+    if (KFP_FLAGS.HIDE_SIDENAV) {
+      return null;
+    }
 
     return (
       <div
@@ -291,10 +300,12 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                       collapsed && css.collapsedButton,
                     )}
                   >
-                    <DescriptionIcon style={{ width: 20, height: 20 }} />
-                    <span className={classes(collapsed && css.collapsedLabel, css.label)}>
-                      Getting Started
-                    </span>
+                    <div className={tailwindcss.sideNavItem}>
+                      <DescriptionIcon style={{ width: 20, height: 20 }} />
+                      <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                        Getting Started
+                      </span>
+                    </div>
                   </Button>
                 </Link>
               </Tooltip>
@@ -322,14 +333,16 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                   collapsed && css.collapsedButton,
                 )}
               >
-                <PipelinesIcon
-                  color={
-                    page.startsWith(RoutePage.PIPELINES) ? iconColor.active : iconColor.inactive
-                  }
-                />
-                <span className={classes(collapsed && css.collapsedLabel, css.label)}>
-                  Pipelines
-                </span>
+                <div className={tailwindcss.sideNavItem}>
+                  <PipelinesIcon
+                    color={
+                      page.startsWith(RoutePage.PIPELINES) ? iconColor.active : iconColor.inactive
+                    }
+                  />
+                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                    Pipelines
+                  </span>
+                </div>
               </Button>
             </Link>
           </Tooltip>
@@ -355,14 +368,16 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                   collapsed && css.collapsedButton,
                 )}
               >
-                <ExperimentsIcon
-                  color={
-                    this._highlightExperimentsButton(page) ? iconColor.active : iconColor.inactive
-                  }
-                />
-                <span className={classes(collapsed && css.collapsedLabel, css.label)}>
-                  Experiments
-                </span>
+                <div className={tailwindcss.sideNavItem}>
+                  <ExperimentsIcon
+                    color={
+                      this._highlightExperimentsButton(page) ? iconColor.active : iconColor.inactive
+                    }
+                  />
+                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                    Experiments
+                  </span>
+                </div>
               </Button>
             </Link>
           </Tooltip>
@@ -388,8 +403,45 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                   collapsed && css.collapsedButton,
                 )}
               >
-                <DirectionsRun />
-                <span className={classes(collapsed && css.collapsedLabel, css.label)}>Runs</span>
+                <div className={tailwindcss.sideNavItem}>
+                  <DirectionsRun />
+                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>Runs</span>
+                </div>
+              </Button>
+            </Link>
+          </Tooltip>
+          <div
+            className={classes(
+              css.indicator,
+              !this._highlightRecurringRunsButton(page) && css.indicatorHidden,
+            )}
+          />
+          <Tooltip
+            title={'Recurring Runs List'}
+            enterDelay={300}
+            placement={'right-start'}
+            disableFocusListener={!collapsed}
+            disableHoverListener={!collapsed}
+            disableTouchListener={!collapsed}
+          >
+            <Link
+              id='recurringRunsBtn'
+              to={RoutePage.RECURRING_RUNS}
+              className={commonCss.unstyled}
+            >
+              <Button
+                className={classes(
+                  css.button,
+                  this._highlightRecurringRunsButton(page) && css.active,
+                  collapsed && css.collapsedButton,
+                )}
+              >
+                <div className={tailwindcss.sideNavItem}>
+                  <Alarm />
+                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                    Recurring Runs
+                  </span>
+                </div>
               </Button>
             </Link>
           </Tooltip>
@@ -415,10 +467,12 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                   collapsed && css.collapsedButton,
                 )}
               >
-                <ArtifactsIcon />
-                <span className={classes(collapsed && css.collapsedLabel, css.label)}>
-                  Artifacts
-                </span>
+                <div className={tailwindcss.sideNavItem}>
+                  <ArtifactsIcon />
+                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                    Artifacts
+                  </span>
+                </div>
               </Button>
             </Link>
           </Tooltip>
@@ -444,10 +498,12 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                   collapsed && css.collapsedButton,
                 )}
               >
-                <ExecutionsIcon />
-                <span className={classes(collapsed && css.collapsedLabel, css.label)}>
-                  Executions
-                </span>
+                <div className={tailwindcss.sideNavItem}>
+                  <ExecutionsIcon />
+                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                    Executions
+                  </span>
+                </div>
               </Button>
             </Link>
           </Tooltip>
@@ -468,11 +524,13 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
                 rel='noopener'
               >
                 <Button className={classes(css.button, collapsed && css.collapsedButton)}>
-                  <JupyterhubIcon style={{ height: 20, width: 20 }} />
-                  <span className={classes(collapsed && css.collapsedLabel, css.label)}>
-                    Notebooks
-                  </span>
-                  <OpenInNewIcon className={css.openInNewTabIcon} />
+                  <div className={tailwindcss.sideNavItem}>
+                    <JupyterhubIcon style={{ height: 20, width: 20 }} />
+                    <span className={classes(collapsed && css.collapsedLabel, css.label)}>
+                      Notebooks
+                    </span>
+                    <OpenInNewIcon className={css.openInNewTabIcon} />
+                  </div>
                 </Button>
               </a>
             </Tooltip>
@@ -563,10 +621,13 @@ export class SideNav extends React.Component<SideNavInternalProps, SideNavState>
   private _highlightRunsButton(page: string): boolean {
     return (
       page.startsWith(RoutePage.RUNS) ||
-      page.startsWith(RoutePrefix.RECURRING_RUN) ||
       page.startsWith(RoutePage.COMPARE) ||
       page === RoutePage.ARCHIVED_RUNS
     );
+  }
+
+  private _highlightRecurringRunsButton(page: string): boolean {
+    return page.startsWith(RoutePage.RECURRING_RUNS) || page.startsWith(RoutePrefix.RECURRING_RUN);
   }
 
   private _highlightArtifactsButton(page: string): boolean {
@@ -626,9 +687,11 @@ const ExternalUri: React.FC<ExternalUriProps> = ({ title, to, collapsed, icon })
   >
     <a href={to} className={commonCss.unstyled} target='_blank' rel='noopener noreferrer'>
       <Button className={classes(css.button, collapsed && css.collapsedButton)}>
-        {icon(css.icon)}
-        <span className={classes(collapsed && css.collapsedLabel, css.label)}>{title}</span>
-        <OpenInNewIcon className={css.openInNewTabIcon} />
+        <div className={tailwindcss.sideNavItem}>
+          {icon(css.icon)}
+          <span className={classes(collapsed && css.collapsedLabel, css.label)}>{title}</span>
+          <OpenInNewIcon className={css.openInNewTabIcon} />
+        </div>
       </Button>
     </a>
   </Tooltip>

@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
       - name: main
-        image: star16231108/ml-pipeline-metadata-writer:1.4.1
-        imagePullPolicy: IfNotPresent
+        image: gcr.io/ml-pipeline/metadata-writer:dummy
         env:
         - name: NAMESPACE_TO_WATCH
           valueFrom:
