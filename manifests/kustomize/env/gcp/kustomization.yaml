@@ -20,7 +20,7 @@ commonLabels:
 
 # !!! If you want to customize the namespace,
 # please also update base/cache-deployer/cluster-scoped/cache-deployer-clusterrolebinding.yaml
-namespace: kubeflow
+namespace: kubeflow2
 
 patchesStrategicMerge:
   - gcp-configurations-patch.yaml
